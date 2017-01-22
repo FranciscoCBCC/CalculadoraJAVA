@@ -1,18 +1,24 @@
-package Aspect;
-import Java.*;
-import javax.swing.JOptionPane;
+package Java;
+
 
 public aspect CalcException {
-	pointcut operacao ():call(int Operacoes.divisao(..));
-	
-	before(): operacao(){
-		System.out.println("Teste");
+	pointcut operacao ():call(* Operacoes.dividir(..));
+	//pointcut operacao(): execution (* Operacoes.dividir(..));
+	/*AfterThrowing(pointcut="execution(public int Operacoes.divisao(..))",throwing="ArithmeticException"){
+		System.out.println("Exceção");
 	}
-	after() throwing (java.lang.ArithmeticException a): 
+	*/
+	
+	//before(): operacao(){
+	//	System.out.println("Antes");
+	//}
+	
+	after() throwing (ArithmeticException a): 
 		call(void Operacao.*(..)) 
 		{
-		System.out.println("Erro");
+		System.out.println("Exception captada");
 		//JOptionPane.showMessageDialog(null,a.getMessage(),"Erro",0);		 
 		 System.exit(0);
 		}
+		
 }

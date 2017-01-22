@@ -17,7 +17,7 @@ public class Operacoes {
 		return a*b;
 	}
 	
-	public int divisao(int a, int b){
+	public int dividir(int a, int b){
 		return a/b;
 	}
 }

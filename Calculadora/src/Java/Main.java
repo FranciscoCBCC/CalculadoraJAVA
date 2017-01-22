@@ -1,5 +1,7 @@
 package Java;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -7,10 +9,18 @@ public class Main {
 		
 		Operacoes op = new Operacoes();
 		
+		int a;
 		
+		Scanner in = new Scanner(System.in);
 		
-		System.out.println(op.divisao(1,0));
-
+		a = in.nextInt();
+		
+		switch(a){
+			case 1:
+				System.out.println(op.dividir(1,0));
+			default:
+				
+		}
 	}
 
 }
